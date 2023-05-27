@@ -14,7 +14,6 @@ setup_db(app)
     binds a flask application and a SQLAlchemy service
 '''
 
-
 def setup_db(app):
     app.config["SQLALCHEMY_DATABASE_URI"] = database_path
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
@@ -35,12 +34,16 @@ def db_drop_and_create_all():
     db.create_all()
     # add one demo row which is helping in POSTMAN test
     drink = Drink(
-        title='water',
+        title='Water',
         recipe='[{"name": "water", "color": "blue", "parts": 1}]'
     )
-
-
     drink.insert()
+
+    mocha = Drink(
+        title='Mocha',
+        recipe='[{"name": "mocha", "color": "gray", "parts": 1}]'
+    )
+    mocha.insert()
 # ROUTES
 
 '''

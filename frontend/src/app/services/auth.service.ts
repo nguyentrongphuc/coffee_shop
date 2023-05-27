@@ -75,6 +75,8 @@ export class AuthService {
   }
 
   can(permission: string) {
+    //return true;
+    
     return this.payload && this.payload.permissions && this.payload.permissions.length && this.payload.permissions.indexOf(permission) >= 0;
   }
 }
