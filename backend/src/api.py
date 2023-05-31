@@ -23,7 +23,6 @@ def after_request(response):
     return response
     
 '''
-@TODO uncomment the following line to initialize the datbase
 !! NOTE THIS WILL DROP ALL RECORDS AND START YOUR DB FROM SCRATCH
 !! NOTE THIS MUST BE UNCOMMENTED ON FIRST RUN
 !! Running this funciton will add one
@@ -127,7 +126,7 @@ def delete_drinks(jwt, id):
     drink = Drink.query.get(id)
     if drink == None:
         abort(404)
-        
+
     try:
         if drink != None:
             drink.delete()
@@ -138,6 +137,7 @@ def delete_drinks(jwt, id):
         "success": True,
         "drinks": [item.short() for item in Drink.query.all()]
     })
+
 
 # Error Handling
 '''
